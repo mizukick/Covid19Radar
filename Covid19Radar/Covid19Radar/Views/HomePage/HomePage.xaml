@@ -32,11 +32,28 @@
                 HasShadow="False">
                 <StackLayout Spacing="0">
                     <Label HorizontalTextAlignment="Center" Style="{StaticResource DefaultLabel}">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding PastDate}" Value="">
+                                <Setter Property="FormattedText">
+                                    <Setter.Value>
+                                        <FormattedString>
+                                            <Span Text="{Binding StartDate}" />
+                                            <Span Text="{x:Static resources:AppResources.HomePageDescription0}" />
+                                            <Span Text=" " />
+                                            <Span Text="{x:Static resources:AppResources.HomePageDescription1}" />
+                                        </FormattedString>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Label.Triggers>
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="{Binding StartDate}" />
                                 <Span Text="{x:Static resources:AppResources.HomePageDescription0}" />
+                                <Span Text=" " />
                                 <Span Text="{Binding PastDate}" />
+                                <Span Text="日" />
+                                <Span Text=" " />
                                 <Span Text="{x:Static resources:AppResources.HomePageDescription1}" />
                             </FormattedString>
                         </Label.FormattedText>
